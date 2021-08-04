@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>India Photos | 2</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/page.css" />
+    <link rel="stylesheet" href="/css/modal.css" />
+    <link rel="stylesheet" href="/css/media.css" />
+    <script src="https://unpkg.co/gsap/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+</head>
+<body>
+<div class="page-wrapper">
+    <a href="index.html">
+        <div class="site-logo">India Photos</div>
+    </a>
+    <div class="navbar">
+        <div class="site-info">
+            <a href="index.html" class="info-item">< back</a>
+        </div>
+        <div class="site-menu">
+            <a href="all-photo.html" class="menu-item">all photos</a>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header-left">
+            <span>people</span>
+        </div>
+<!--        <div class="header-right">person</div>-->
+    </div>
+    <div class="inpage-img-container"></div>
+
+</div>
+<div class="img-modal">
+    <span>✕</span>
+    <img class="img-modal-content" />
+</div>
+<footer><p class="copyright">Copyright 2021. Jay Jeong all rights reserved.</p></footer>
+
+<script>
+    const inpageImgContainer = document.querySelector(".inpage-img-container");
+    for (let i = 1; i <= 42; i++) {
+        let inpageImage = document.createElement("img");
+        inpageImage.src = `./india-photos/people/image-${i}.jpg`;
+        inpageImage.classList.add('inpage-image',);
+        inpageImage.loading = 'lazy';
+        inpageImgContainer.appendChild(inpageImage);
+}
+</script>
+<script src = "/js/modal.js"></script>
+</body>
+</html>
