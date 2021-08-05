@@ -1,4 +1,3 @@
-
 const modal = document.querySelector('.about-modal');
 const close = document.querySelector('.about-modal span');
 const content = document.querySelector('.about-modal-content');
@@ -11,17 +10,17 @@ open.addEventListener('click', function () {
 
 // close 버튼 클릭시
 
-close.addEventListener('click',function () {
-    modal.style.display='none';
+close.addEventListener('click', function () {
+    modal.style.display = 'none';
 })
 
 // 이미지 바깥 클릭시
 modal.addEventListener('click', (e) => {
     console.log(e.target);
-    if(e.target === content) {
+    if (e.target === content) {
         false
-    }else{
-        modal.style.display='none';
+    } else {
+        modal.style.display = 'none';
     }
 })
 
