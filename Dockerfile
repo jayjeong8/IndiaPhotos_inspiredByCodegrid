@@ -5,5 +5,5 @@ COPY css css
 COPY india-photos india-photos
 COPY js js
 COPY src src
-COPY ./*.html .
+COPY ./*.html ./
 COPY nginx.conf /etc/nginx/conf.d/default.conf
