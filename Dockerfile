@@ -1,8 +1,8 @@
 FROM nginx:1.21.1-alpine
 
 WORKDIR /india
+VOLUME /india/india-photos
 COPY css css
-COPY india-photos india-photos
 COPY js js
 COPY src src
 COPY ./*.html ./
