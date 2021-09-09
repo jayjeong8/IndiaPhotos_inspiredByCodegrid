@@ -44,7 +44,17 @@
 </div>
 <footer><p class="copyright">Copyright 2021. Jay Jeong all rights reserved.</p></footer>
 
-<script src = "/js/page.js"></script>
+
+<script>
+    const inpageImgContainer = document.querySelector(".inpage-img-container");
+    for (let i = 1; i <= 37; i++) {
+        let inpageImage = document.createElement("img");
+        inpageImage.src = `https://objectstorage.ap-seoul-1.oraclecloud.com/n/cn1xwirzt8b1/b/jay-assets/o/person%2Fimage-${i}.jpg`;
+        inpageImage.classList.add('inpage-image',);
+        inpageImage.loading = 'lazy';
+        inpageImgContainer.appendChild(inpageImage);
+    }
+</script>
 <script src = "/js/modal.js"></script>
 </body>
 </html>
