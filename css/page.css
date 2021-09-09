@@ -28,6 +28,7 @@
 
 .inpage-img-container img{
     width: 20%;
+    height: 13.33vw;
     margin: 2% 2.5%;
     cursor: pointer;
 }
