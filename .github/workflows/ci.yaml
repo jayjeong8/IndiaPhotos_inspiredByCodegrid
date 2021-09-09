@@ -1,9 +1,9 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types:
+      - created
   pull_request:
 
 jobs:
@@ -19,7 +19,8 @@ jobs:
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v3.5.0
         with:
-          flavor: latest=true
+          tags: |
+            type=semver,pattern={{version}}
           images: ${{ env.REGISTRY }}/india
           labels: |
             maintainer=${{ env.USERNAME }}
