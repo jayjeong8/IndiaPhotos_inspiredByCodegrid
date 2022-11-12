@@ -11,17 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PLATFORMS: linux/amd64,linux/arm64/v8
-      USERNAME: jay
-      REGISTRY: registry.bhyoo.com
+      USERNAME: jayjeong8
     steps:
       - uses: actions/checkout@v2
       - name: Docker meta
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v3.5.0
+        uses: docker/metadata-action@v4
         with:
+          flavor: latest=true
+          images: ${{ env.DOCKERHUB_USERNAME }}/deluged
           tags: |
             type=semver,pattern={{version}}
-          images: ${{ env.REGISTRY }}/india
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
           labels: |
             maintainer=${{ env.USERNAME }}
             org.opencontainers.image.title=india
@@ -36,9 +38,8 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
-          registry: ${{ env.REGISTRY }}
           username: ${{ env.USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
@@ -47,5 +48,3 @@ jobs:
           platforms: ${{ env.PLATFORMS }}
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/india:latest
-          cache-to: type=inline
