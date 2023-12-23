@@ -47,7 +47,7 @@
     const inpageImgContainer = document.querySelector(".inpage-img-container");
     for (let i = 1; i <= 42; i++) {
         let inpageImage = document.createElement("img");
-        inpageImage.src = `https://objectstorage.ap-seoul-1.oraclecloud.com/n/cn1xwirzt8b1/b/jay-assets/o/people%2Fimage-${i}.jpg`;
+        inpageImage.src = `/img/people/image-${i}.jpg`;
         inpageImage.classList.add('inpage-image',);
         inpageImage.loading = 'lazy';
         inpageImgContainer.appendChild(inpageImage);
